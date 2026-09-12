@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BeforeAfterFlow from '../../components/BeforeAfterFlow.astro';
+import SystemDiagramBlock from '../../components/SystemDiagramBlock.astro';
+import TechnicalMetaRow from '../../components/TechnicalMetaRow.astro';
+import TraceRail from '../../components/TraceRail.astro';
+import ThesisBlock from '../../components/ThesisBlock.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import { siteContent } from '../../content/siteContent';
+
+export function getStaticPaths() {
+  return siteContent.projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const caseTrace = [
+  { id: 'problem', label: 'Problem', note: project.problem },
+  { id: 'boundary', label: 'Boundary', note: project.boundary },
+  { id: 'implementation', label: 'Implementation', note: project.summary },
+  { id: 'outcome', label: 'Outcome', note: project.outcome },
+];
+---
+
+<BaseLayout
+  title={`${project.title} | Dave Chapman`}
+  description={project.summary}
+  canonical={`${siteContent.site.canonical}work/${project.slug}/`}
+  ogImage={`${siteContent.site.canonical}social-preview.svg`}
+  ogType="article"
+>
+  <main id="main-content" class="site page-shell case-shell">
+    <SiteHeader currentPath={currentPath} />
+
+    <header class="page-header">
+      <a class="page-back-link" href="/work/" aria-label="Back to all projects">← Back to work</a>
+      <p class="section-label">Case study</p>
+      <h1>{project.title}</h1>
+      <p>{project.summary}</p>
+      <p class="motif-line">Bottleneck -> Boundary -> Build -> Measure</p>
+      <TechnicalMetaRow
+        stack={project.stack}
+        confidence={project.confidence}
+        timeline={project.timeline}
+        scope={project.scope}
+      />
+    </header>
+
+    <BeforeAfterFlow before={project.before} after={project.after} />
+
+    <section class="section">
+      <div class="section-inner">
+        <p class="section-label">Decision trace</p>
+        <h2>From friction to measurable outcome</h2>
+        <div class="section-duo">
+          <TraceRail ariaLabel="Case-study trace" steps={caseTrace} />
+          <div>
+            <h3>Constraint first</h3>
+            <p>{project.constraints}</p>
+            <h3>Outcome evidence</h3>
+            <p>{project.outcome}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <SystemDiagramBlock
+      title="Agent software delivery cycle with human review gates"
+      description="The agent handles scoped implementation work, while human review gates keep accountability, quality, and release confidence explicit."
+      imageSrc={project.diagramSrc}
+      altText={project.diagramAlt}
+    />
+
+    <ThesisBlock
+      label="Constraint"
+      title="Autonomy must remain inspectable"
+      text="When confidence is low or context is missing, route to accountable human review."
+    />
+
+    <p>
+      <a class="inline-link" href="/work/">Back to all projects</a>
+    </p>
+  </main>
+</BaseLayout>

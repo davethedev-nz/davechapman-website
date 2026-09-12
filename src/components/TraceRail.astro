@@ -1,0 +1,42 @@
+---
+interface TraceStep {
+  id: string;
+  label: string;
+  note?: string;
+}
+
+interface Props {
+  ariaLabel?: string;
+  steps: TraceStep[];
+  orientation?: 'vertical' | 'horizontal';
+  compact?: boolean;
+}
+
+const {
+  ariaLabel = 'Decision trace',
+  steps,
+  orientation = 'vertical',
+  compact = false,
+} = Astro.props;
+---
+
+<ol
+  class:list={[
+    'trace-rail',
+    orientation === 'horizontal' && 'trace-rail-horizontal',
+    compact && 'trace-rail-compact',
+  ]}
+  aria-label={ariaLabel}
+>
+  {
+    steps.map((step, index) => (
+      <li>
+        <div class="trace-node" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div>
+        <div class="trace-text">
+          <p class="trace-label">{step.label}</p>
+          {step.note && <p class="trace-note">{step.note}</p>}
+        </div>
+      </li>
+    ))
+  }
+</ol>

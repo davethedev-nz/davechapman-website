@@ -1,0 +1,116 @@
+---
+import '../styles/global.css';
+import { siteContent } from '../content/siteContent';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage: string;
+  ogType?: 'website' | 'article';
+}
+
+const { title, description, canonical, ogImage, ogType = 'website' } = Astro.props;
+const siteOrigin = siteContent.site.canonical;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap"
+    />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+
+    <script type="application/ld+json" is:inline>
+      {JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Person',
+            '@id': `${siteOrigin}#person`,
+            name: siteContent.site.name,
+            jobTitle: siteContent.site.role,
+            description,
+            url: siteOrigin,
+            email: siteContent.site.email,
+            address: {
+              '@type': 'PostalAddress',
+              addressCountry: 'NZ',
+            },
+            knowsAbout: [
+              'AI systems',
+              'workflow automation',
+              'decision support systems',
+              'software architecture',
+              'cloud systems',
+              'rapid prototyping',
+            ],
+            sameAs: siteContent.socials.map((social) => social.href),
+          },
+          {
+            '@type': 'WebSite',
+            '@id': `${siteOrigin}#website`,
+            url: siteOrigin,
+            name: siteContent.site.name,
+            description: siteContent.site.description,
+            inLanguage: 'en',
+          },
+        ],
+      })}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <slot />
+    <script is:inline>
+      (() => {
+        const header = document.querySelector('.header');
+        if (!header) return;
+
+        const mq = window.matchMedia('(min-width: 981px) and (pointer: fine)');
+        const threshold = 64;
+
+        const update = () => {
+          if (!mq.matches) {
+            header.classList.remove('header-widget');
+            return;
+          }
+
+          header.classList.toggle('header-widget', window.scrollY > threshold);
+        };
+
+        update();
+        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        if (typeof mq.addEventListener === 'function') {
+          mq.addEventListener('change', update);
+        } else if (typeof mq.addListener === 'function') {
+          mq.addListener(update);
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+---
+interface Props {
+  before: string;
+  after: string;
+}
+
+const { before, after } = Astro.props;
+---
+
+<div class="before-after-flow" role="group" aria-label="Before and after workflow comparison">
+  <article>
+    <p class="flow-label">Before</p>
+    <p>{before}</p>
+  </article>
+  <div class="flow-arrow" aria-hidden="true">01 -> 02</div>
+  <article>
+    <p class="flow-label">After</p>
+    <p>{after}</p>
+  </article>
+</div>

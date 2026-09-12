@@ -1,0 +1,29 @@
+---
+import { siteContent } from '../content/siteContent';
+
+const now = new Date().getFullYear();
+---
+
+<footer id="contact" class="site-footer" aria-labelledby="footer-title">
+  <div class="site-footer-cta">
+    <p class="section-label">Contact</p>
+    <h2 id="footer-title">{siteContent.contact.title}</h2>
+    <p>{siteContent.contact.text}</p>
+    <p>
+      <a class="button" href={siteContent.contact.href}>{siteContent.contact.button}</a>
+    </p>
+  </div>
+
+  <section class="site-footer-details">
+    <div class="site-footer-details-main">
+      <p class="section-label">Details</p>
+      <ul class="footer-list">
+        <li>{siteContent.site.location}</li>
+        <li><a href={siteContent.contact.href}>{siteContent.site.email}</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <p class="motif-line">Bottleneck -> Boundary -> Build -> Measure</p>
+  <p class="footer-meta">© {now} {siteContent.site.name}.</p>
+</footer>

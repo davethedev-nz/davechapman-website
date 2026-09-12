@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ThesisBlock from '../../components/ThesisBlock.astro';
+import TraceRail from '../../components/TraceRail.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import { siteContent } from '../../content/siteContent';
+
+interface Article {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  readTime: string;
+  thesis: string;
+}
+
+export function getStaticPaths() {
+  return (siteContent.articles as Article[]).map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props as { article: Article };
+const currentPath = Astro.url.pathname;
+
+const articleTrace = [
+  { id: 'thesis', label: 'Thesis', note: article.thesis },
+  { id: 'constraints', label: 'Constraints', note: 'Where the argument can fail' },
+  { id: 'implementation', label: 'Implementation', note: 'What teams can do this quarter' },
+];
+---
+
+<BaseLayout
+  title={`${article.title} | Dave Chapman`}
+  description={article.description}
+  canonical={`${siteContent.site.canonical}writing/${article.slug}/`}
+  ogImage={`${siteContent.site.canonical}social-preview.svg`}
+  ogType="article"
+>
+  <main id="main-content" class="site page-shell article-shell">
+    <SiteHeader currentPath={currentPath} />
+
+    <article>
+      <header class="page-header">
+        <a class="page-back-link" href="/writing/" aria-label="Back to all writing">← Back to writing</a>
+        <p class="section-label">Article</p>
+        <h1>{article.title}</h1>
+        <p class="article-meta">{article.date} · {article.readTime}</p>
+        <p>{article.description}</p>
+        <p class="motif-line">Bottleneck -> Boundary -> Build -> Measure</p>
+      </header>
+
+      <ThesisBlock label="Thesis" title="Point of view" text={article.thesis} />
+
+      <div class="section-duo">
+        <div class="article-content">
+          <h2>Why this matters now</h2>
+          <p>
+            AI-assisted engineering increases options, but options create noise without clear boundaries.
+            Teams that define ownership and verification first ship faster with less rework.
+          </p>
+          <h2>Operational implication</h2>
+          <p>
+            Treat autonomy as scoped capability, not a blanket mode.
+            Measure outcomes, inspect failures, and keep human accountability at critical points.
+          </p>
+          <h2>Practical next step</h2>
+          <p>
+            Pick one repeated workflow, map the path, prototype one narrow route, and measure before scaling.
+          </p>
+        </div>
+        <TraceRail ariaLabel="Article trace" steps={articleTrace} />
+      </div>
+    </article>
+  </main>
+</BaseLayout>

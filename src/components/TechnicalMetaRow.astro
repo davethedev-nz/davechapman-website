@@ -1,0 +1,17 @@
+---
+interface Props {
+  stack: string;
+  confidence: string;
+  timeline: string;
+  scope: string;
+}
+
+const { stack, confidence, timeline, scope } = Astro.props;
+---
+
+<ul class="technical-meta-row" aria-label="Technical metadata">
+  <li><span>Stack</span><strong>{stack}</strong></li>
+  <li><span>Confidence</span><strong>{confidence}</strong></li>
+  <li><span>Timeline</span><strong>{timeline}</strong></li>
+  <li><span>Scope</span><strong>{scope}</strong></li>
+</ul>

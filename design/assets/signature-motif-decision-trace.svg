@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 460" role="img" aria-labelledby="title desc">
+  <title id="title">Decision Trace Rail Motif Study</title>
+  <desc id="desc">A reusable visual motif showing a segmented rail, checkpoints, branch marks, boundary brackets, and annotation labels.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8f6f1; }
+      .rail { stroke: #8f9995; stroke-width: 2; stroke-dasharray: 16 10; fill: none; }
+      .branch { stroke: #b85b34; stroke-width: 2; fill: none; }
+      .node { fill: #f8f6f1; stroke: #0f766e; stroke-width: 2; }
+      .node-warn { fill: #f0dfd6; stroke: #b85b34; stroke-width: 2; }
+      .label { font: 600 12px 'IBM Plex Mono', monospace; letter-spacing: .08em; fill: #687985; }
+      .title { font: 700 24px 'Fraunces', serif; fill: #18242c; }
+      .body { font: 400 14px 'IBM Plex Sans', sans-serif; fill: #42525d; }
+      .bound { stroke: #8f9995; stroke-width: 2; fill: none; }
+      .panel { fill: #ffffff; stroke: #bcc1be; stroke-width: 1; rx: 10; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="980" height="460" />
+  <text class="title" x="42" y="52">Decision Trace Rail: structural motif</text>
+  <text class="body" x="42" y="80">Use as semantic navigation through problem, boundary, action, review, and outcome.</text>
+
+  <rect class="panel" x="36" y="112" width="908" height="296" />
+
+  <path class="rail" d="M110 152 V364" />
+  <path class="rail" d="M110 220 H452" />
+  <path class="rail" d="M452 220 V316" />
+  <path class="rail" d="M452 316 H820" />
+
+  <path class="branch" d="M110 220 L166 184" />
+  <path class="branch" d="M452 316 L514 352" />
+
+  <circle class="node" cx="110" cy="152" r="7" />
+  <circle class="node-warn" cx="110" cy="220" r="8" />
+  <circle class="node" cx="452" cy="220" r="7" />
+  <circle class="node" cx="452" cy="316" r="7" />
+  <circle class="node" cx="820" cy="316" r="9" />
+
+  <path class="bound" d="M310 182 h14 v76 h-14" />
+  <path class="bound" d="M584 278 h14 v76 h-14" />
+
+  <text class="label" x="132" y="156">INPUT SIGNAL</text>
+  <text class="label" x="132" y="224">BOUNDARY CHECK</text>
+  <text class="label" x="474" y="224">ORCHESTRATION</text>
+  <text class="label" x="474" y="320">HUMAN REVIEW</text>
+  <text class="label" x="840" y="320">OUTCOME</text>
+
+  <text class="body" x="180" y="178">Branch marker can indicate alternate action route.</text>
+  <text class="body" x="530" y="372">Boundary brackets show responsibility limits and control surfaces.</text>
+</svg>

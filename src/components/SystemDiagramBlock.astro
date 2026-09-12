@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  imageSrc?: string;
+  altText?: string;
+}
+
+const {
+  title,
+  description,
+  imageSrc = '/images/agent-delivery-cycle.svg',
+  altText = 'Agent software delivery cycle with human review gates',
+} = Astro.props;
+---
+
+<section class="system-diagram-block" aria-label={title}>
+  <header>
+    <p class="diagram-label">System boundary</p>
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </header>
+  <img
+    src={imageSrc}
+    alt={altText}
+    width="1774"
+    height="887"
+    class="system-diagram-image"
+    loading="lazy"
+    decoding="async"
+  />
+</section>

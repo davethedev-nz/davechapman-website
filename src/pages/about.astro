@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionBlock from '../components/SectionBlock.astro';
+import ThesisBlock from '../components/ThesisBlock.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { siteContent } from '../content/siteContent';
+
+const currentPath = Astro.url.pathname;
+---
+
+<BaseLayout
+  title="About | Dave Chapman"
+  description={siteContent.about}
+  canonical={`${siteContent.site.canonical}about/`}
+  ogImage={`${siteContent.site.canonical}social-preview.svg`}
+>
+  <main id="main-content" class="site page-shell">
+    <SiteHeader currentPath={currentPath} />
+
+    <section class="hero-shell hero-shell-v1" aria-labelledby="about-title">
+      <div class="hero">
+        <div class="hero-copy hero-copy-ledger">
+          <p class="eyebrow">About</p>
+          <h1 id="about-title">Working in the messy middle</h1>
+          <p>
+            I’m Dave Chapman. I spend most of my time in the part of work where operations, software, and decision-making all collide.
+            My background in business ownership and logistics taught me to look for risk, handoff failure, and unclear ownership before I reach for more technology.
+            I’ve been frustrated by how often large organisations slow down their own change with red tape, process drag, and excessive justification for straightforward improvements.
+            I like building systems that make messy work legible, more reliable, and easier to act on.
+          </p>
+          <p class="motif-line">Bottleneck -> Boundary -> Build -> Measure</p>
+        </div>
+
+        <div class="hero-visual hero-photo-stack" aria-label="Dave Chapman profile image">
+          <figure class="hero-photo-card about-headshot-card">
+            <img
+              src="/images/headshot.jpg"
+              alt="Dave Chapman headshot"
+              width="735"
+              height="660"
+              loading="eager"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <ThesisBlock
+      label="Observation"
+      title="Most transformation plans fail at the strategy-to-delivery handoff"
+      text="The hard part is rarely the technology idea. It is the operational reality underneath it: the handoff, the exception path, the unclear ownership, and the decision that nobody has made explicit. I’ve seen too many organisations slow themselves down with process friction and unnecessary justification for changes that are obvious to the people doing the work."
+    />
+
+    <SectionBlock
+      id="practice"
+      label="What I care about"
+      title="Start with the work, not the tool"
+      intro="I tend to work from the operational problem outward: what is slow, expensive, fragile, or hard to trust?"
+      variant="band"
+      className="section-density-light"
+    >
+      <ul class="list">
+        <li>I begin with the workflow itself, not a grand transformation narrative.</li>
+        <li>I look for where decision ownership breaks down, where risk is quietly absorbed by people, and where process drag is masking the real issue.</li>
+        <li>I prefer prototypes that show the real operating logic, including failure paths and review points, without requiring a mountain of justification to move forward.</li>
+      </ul>
+    </SectionBlock>
+
+    <SiteFooter />
+  </main>
+</BaseLayout>

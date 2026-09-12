@@ -1,0 +1,25 @@
+---
+interface Props {
+  id: string;
+  label: string;
+  title: string;
+  intro?: string;
+  variant?: 'default' | 'band' | 'ink';
+  className?: string;
+}
+
+const { id, label, title, intro, variant = 'default', className } = Astro.props;
+---
+
+<section
+  id={id}
+  class:list={['section', variant !== 'default' && `section-${variant}`, className]}
+  aria-labelledby={`${id}-title`}
+>
+  <div class="section-inner">
+    <p class="section-label">{label}</p>
+    <h2 id={`${id}-title`}>{title}</h2>
+    {intro && <p class="section-intro">{intro}</p>}
+    <slot />
+  </div>
+</section>

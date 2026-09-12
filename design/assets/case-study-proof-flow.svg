@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 760" role="img" aria-labelledby="title desc">
+  <title id="title">Case Study Proof Flow Example</title>
+  <desc id="desc">A reference composition showing problem, reasoning, system design, and measured outcome in one visual frame.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f1efe8; }
+      .panel { fill: #fffdf8; stroke: #bcc1be; stroke-width: 1; }
+      .head { font: 700 30px 'Fraunces', serif; fill: #18242c; }
+      .sub { font: 600 13px 'IBM Plex Mono', monospace; letter-spacing: .09em; fill: #687985; }
+      .txt { font: 400 15px 'IBM Plex Sans', sans-serif; fill: #42525d; }
+      .line { stroke: #8f9995; stroke-width: 2; fill: none; }
+      .accent { stroke: #0f766e; stroke-width: 3; fill: none; }
+      .signal { stroke: #b85b34; stroke-width: 2.4; fill: none; }
+      .node { fill: #f8f6f1; stroke: #0f766e; stroke-width: 2; }
+      .warn { fill: #f0dfd6; stroke: #b85b34; stroke-width: 2; }
+      .box { fill: #ffffff; stroke: #bcc1be; stroke-width: 1; }
+      .metric { font: 700 42px 'Fraunces', serif; fill: #18242c; }
+      .metricLabel { font: 600 11px 'IBM Plex Mono', monospace; letter-spacing: .09em; fill: #687985; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1180" height="760" />
+  <text class="head" x="60" y="70">Case Study Anatomy: Evidence over claims</text>
+  <text class="txt" x="60" y="102">Reference artifact for implementation. Not production design.</text>
+
+  <rect class="panel" x="50" y="130" width="1080" height="560" rx="14" />
+
+  <text class="sub" x="90" y="176">01 PROBLEM</text>
+  <rect class="box" x="90" y="190" width="300" height="126" rx="10" />
+  <text class="txt" x="110" y="220">Support team repeatedly triages</text>
+  <text class="txt" x="110" y="244">similar tickets with inconsistent</text>
+  <text class="txt" x="110" y="268">escalation decisions.</text>
+
+  <text class="sub" x="440" y="176">02 REASONING</text>
+  <rect class="box" x="440" y="190" width="300" height="126" rx="10" />
+  <text class="txt" x="460" y="220">Define decision boundary:</text>
+  <text class="txt" x="460" y="244">AI suggests triage path, human</text>
+  <text class="txt" x="460" y="268">approves high-risk escalations.</text>
+
+  <text class="sub" x="790" y="176">03 SYSTEM</text>
+  <rect class="box" x="790" y="190" width="300" height="126" rx="10" />
+  <text class="txt" x="810" y="220">Ticket intake -> context retrieval</text>
+  <text class="txt" x="810" y="244">-> model scoring -> human gate</text>
+  <text class="txt" x="810" y="268">-> action + audit trail.</text>
+
+  <path class="line" d="M240 330 V560" />
+  <path class="line" d="M590 330 V560" />
+  <path class="line" d="M940 330 V560" />
+
+  <path class="accent" d="M240 384 H590 H940" />
+  <path class="signal" d="M590 384 L590 444 L680 444" />
+
+  <circle class="node" cx="240" cy="384" r="9" />
+  <circle class="warn" cx="590" cy="384" r="10" />
+  <circle class="node" cx="940" cy="384" r="9" />
+
+  <text class="sub" x="90" y="420">BEFORE</text>
+  <rect class="box" x="90" y="434" width="300" height="110" rx="10" />
+  <text class="txt" x="110" y="464">Manual categorization</text>
+  <text class="txt" x="110" y="488">Escalations vary by operator</text>
+  <text class="txt" x="110" y="512">Limited auditability</text>
+
+  <text class="sub" x="440" y="420">BOUNDARY + CONTROLS</text>
+  <rect class="box" x="440" y="434" width="300" height="110" rx="10" />
+  <text class="txt" x="460" y="464">Confidence threshold routing</text>
+  <text class="txt" x="460" y="488">Human override at risk node</text>
+  <text class="txt" x="460" y="512">Exception logging</text>
+
+  <text class="sub" x="790" y="420">AFTER</text>
+  <rect class="box" x="790" y="434" width="300" height="110" rx="10" />
+  <text class="txt" x="810" y="464">Faster first triage pass</text>
+  <text class="txt" x="810" y="488">Consistent escalation criteria</text>
+  <text class="txt" x="810" y="512">Inspectable decision path</text>
+
+  <rect class="box" x="90" y="576" width="1000" height="88" rx="10" />
+  <text class="sub" x="112" y="606">04 OUTCOME EVIDENCE</text>
+  <text class="metric" x="112" y="648">-37%</text>
+  <text class="metricLabel" x="220" y="644">MEAN TRIAGE TIME</text>
+  <text class="metric" x="430" y="648">+24%</text>
+  <text class="metricLabel" x="548" y="644">HIGH-RISK FLAG PRECISION</text>
+  <text class="metric" x="820" y="648">100%</text>
+  <text class="metricLabel" x="956" y="644">AUDITABLE DECISION TRACE</text>
+</svg>

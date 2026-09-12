@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionBlock from '../../components/SectionBlock.astro';
+import ThesisBlock from '../../components/ThesisBlock.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { siteContent } from '../../content/siteContent';
+
+const currentPath = Astro.url.pathname;
+---
+
+<BaseLayout
+  title="Writing | Dave Chapman"
+  description="Working notes on AI-native engineering, agentic workflows, and practical software delivery strategy."
+  canonical={`${siteContent.site.canonical}writing/`}
+  ogImage={`${siteContent.site.canonical}social-preview.svg`}
+>
+  <main id="main-content" class="site page-shell">
+    <SiteHeader currentPath={currentPath} />
+
+    <section class="hero-shell hero-shell-v1" aria-labelledby="writing-title">
+      <div class="hero">
+        <div class="hero-copy hero-copy-ledger">
+          <p class="eyebrow">Writing</p>
+          <h1 id="writing-title">Technical arguments and working notes</h1>
+          <p>Most AI adoption stalls because workflow decisions stay unclear. These notes focus on fixing that.</p>
+          <p class="motif-line">Bottleneck -> Boundary -> Build -> Measure</p>
+        </div>
+
+        <div class="hero-visual hero-photo-stack" aria-label="Writing context">
+          <figure class="hero-photo-card">
+            <img
+              src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80"
+              alt="Desk with papers and notes about systems thinking and writing"
+              width="1200"
+              height="800"
+              loading="eager"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <ThesisBlock
+      label="Hypothesis"
+      title="The highest leverage is decision design"
+      text="Faster code helps. Durable leverage comes from decision design and verification."
+    />
+
+    <SectionBlock
+      id="articles"
+      label="Notes"
+      title="Writing coming soon"
+      intro="I’ll add human-written pieces here as they’re published."
+      variant="band"
+      className="section-density-light"
+    >
+      <p class="section-intro">The writing archive is intentionally empty for now. This page will fill up as new thinking is published.</p>
+    </SectionBlock>
+
+    <SiteFooter />
+  </main>
+</BaseLayout>

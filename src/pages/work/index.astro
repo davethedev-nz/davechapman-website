@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectEvidenceCard from '../../components/ProjectEvidenceCard.astro';
+import SectionBlock from '../../components/SectionBlock.astro';
+import ThesisBlock from '../../components/ThesisBlock.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { siteContent } from '../../content/siteContent';
+
+const currentPath = Astro.url.pathname;
+---
+
+<BaseLayout
+  title="Work | Dave Chapman"
+  description="Case studies showing how bottlenecks were mapped, prototyped, and improved with measurable outcomes."
+  canonical={`${siteContent.site.canonical}work/`}
+  ogImage={`${siteContent.site.canonical}social-preview.svg`}
+>
+  <main id="main-content" class="site page-shell">
+    <SiteHeader currentPath={currentPath} />
+
+    <section class="hero-shell hero-shell-v1" aria-labelledby="work-title">
+      <div class="hero">
+        <div class="hero-copy hero-copy-ledger">
+          <p class="eyebrow">Work</p>
+          <h1 id="work-title">Proof logs, not portfolio tiles</h1>
+          <p>
+            Each project shows the bottleneck, what changed, what was built, and the outcome.
+          </p>
+          <p class="motif-line">Bottleneck -> Boundary -> Build -> Measure</p>
+        </div>
+
+        <div class="hero-visual hero-photo-stack" aria-label="Proof casework context">
+          <figure class="hero-photo-card">
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+              alt="Laptop and documents showing workflow analysis and system design"
+              width="1200"
+              height="800"
+              loading="eager"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <ThesisBlock
+      label="Observation"
+      title="Useful prototypes expose boundaries early"
+      text="A prototype is only useful when ownership, risk, and success criteria are clear."
+    />
+
+    <SectionBlock
+      id="projects"
+      label="Selected work"
+      title="Case studies organized around the actual bottleneck"
+      intro="The stories below are built to show the constraint, the intervention, and the measured effect."
+      variant="band"
+      className="section-density-light"
+    >
+      <div class="grid two evidence-grid" aria-label="Project index">
+        {
+          siteContent.projects.map((project) => (
+            <ProjectEvidenceCard
+              title={project.title}
+              mechanism={project.summary}
+              problem={project.problem}
+              boundary={project.boundary}
+              outcome={project.outcome}
+              constraints={project.constraints}
+              href={`/work/${project.slug}/`}
+            />
+          ))
+        }
+      </div>
+    </SectionBlock>
+
+    <SiteFooter />
+  </main>
+</BaseLayout>

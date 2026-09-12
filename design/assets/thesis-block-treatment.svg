@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 430" role="img" aria-labelledby="title desc">
+  <title id="title">Thesis Block Treatment Variants</title>
+  <desc id="desc">Visual language for opinion and hypothesis blocks used across homepage, case studies, and articles.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f1efe8; }
+      .panel { fill: #fffdf8; stroke: #bcc1be; stroke-width: 1; }
+      .inkpanel { fill: #111b22; stroke: #31424f; stroke-width: 1; }
+      .head { font: 700 26px 'Fraunces', serif; fill: #18242c; }
+      .label { font: 600 12px 'IBM Plex Mono', monospace; letter-spacing: .08em; }
+      .body { font: 400 20px 'Fraunces', serif; line-height: 1.38; }
+      .meta { font: 400 14px 'IBM Plex Sans', sans-serif; fill: #42525d; }
+      .line { stroke: #8f9995; stroke-width: 2; fill: none; stroke-dasharray: 12 8; }
+      .node { fill: #f8f6f1; stroke: #0f766e; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="940" height="430" />
+  <text class="head" x="40" y="50">Thesis / Point-of-View Block</text>
+
+  <rect class="panel" x="40" y="80" width="860" height="145" rx="12" />
+  <path class="line" d="M84 102 V204" />
+  <circle class="node" cx="84" cy="136" r="8" />
+  <text class="label" x="110" y="118" fill="#687985">THESIS</text>
+  <text class="body" x="110" y="154" fill="#18242c">AI changes implementation economics. It does not remove the need</text>
+  <text class="body" x="110" y="184" fill="#18242c">to design decision ownership, boundaries, and review paths.</text>
+  <text class="meta" x="110" y="208">Use for homepage and case-study arguments.</text>
+
+  <rect class="inkpanel" x="40" y="250" width="860" height="145" rx="12" />
+  <path class="line" d="M84 272 V374" stroke="#6f8692" />
+  <circle class="node" cx="84" cy="306" r="8" />
+  <text class="label" x="110" y="288" fill="#a8bbc4">OBSERVATION</text>
+  <text class="body" x="110" y="324" fill="#edf2f4">Most teams automate tasks first and discover too late</text>
+  <text class="body" x="110" y="354" fill="#edf2f4">that they needed to redesign the workflow decision model.</text>
+  <text class="meta" x="110" y="378" fill="#c8d3d8">Use for dark-band sections and article thesis intros.</text>
+</svg>

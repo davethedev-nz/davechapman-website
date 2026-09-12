@@ -1,0 +1,21 @@
+---
+interface Props {
+  label?: string;
+  title: string;
+  text: string;
+  variant?: 'default' | 'ink';
+}
+
+const {
+  label = 'Thesis',
+  title,
+  text,
+  variant = 'default',
+} = Astro.props;
+---
+
+<aside class:list={['thesis-block', variant === 'ink' && 'thesis-block-ink']} aria-label={label}>
+  <p class="thesis-label">{label}</p>
+  <h3>{title}</h3>
+  <p>{text}</p>
+</aside>

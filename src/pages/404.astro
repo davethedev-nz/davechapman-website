@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionBlock from '../components/SectionBlock.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { siteContent } from '../content/siteContent';
+
+const currentPath = Astro.url.pathname;
+---
+
+<BaseLayout
+  title="Page not found | Dave Chapman"
+  description="The page you requested is unavailable. Explore recent case studies, writing, or get in touch."
+  canonical={`${siteContent.site.canonical}404/`}
+  ogImage={`${siteContent.site.canonical}social-preview.svg`}
+>
+  <main id="main-content" class="site page-shell">
+    <SiteHeader currentPath={currentPath} />
+
+    <SectionBlock
+      id="missing-page"
+      label="404"
+      title="This page does not exist"
+      intro="Try one of the main sections below."
+      variant="band"
+      className="section-density-light"
+    >
+      <div class="hero-actions">
+        <a class="button" href="/work/">View work</a>
+        <a class="button-subtle" href="/writing/">Read writing</a>
+        <a class="button-subtle" href="/contact/">Contact</a>
+      </div>
+    </SectionBlock>
+
+    <SiteFooter />
+  </main>
+</BaseLayout>

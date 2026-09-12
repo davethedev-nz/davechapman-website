@@ -1,17 +1,230 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionBlock from '../components/SectionBlock.astro';
+import ThesisBlock from '../components/ThesisBlock.astro';
+import ProofMetricStrip from '../components/ProofMetricStrip.astro';
+import ProjectEvidenceCard from '../components/ProjectEvidenceCard.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { siteContent } from '../content/siteContent';
 
+const currentPath = Astro.url.pathname;
+
+const metrics = [
+  { value: '5+', label: 'years building operational systems' },
+  { value: '2-6', label: 'weeks to working prototype', accent: true },
+  { value: '1', label: 'workflow per diagnostic' },
+  { value: '1', label: 'go or no-go decision gate', accent: true },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title={siteContent.site.title}
+  description={siteContent.site.description}
+  canonical={siteContent.site.canonical}
+  ogImage={`${siteContent.site.canonical}social-preview.svg`}
+>
+  <main id="main-content" class="site">
+    <SiteHeader currentPath={currentPath} />
+
+    <section class="hero-shell hero-shell-v1" aria-labelledby="hero-title">
+      <div class="hero">
+        <div class="hero-copy hero-copy-ledger">
+          <p class="eyebrow">{siteContent.hero.eyebrow}</p>
+          <h1 id="hero-title">{siteContent.hero.headline}</h1>
+          <p>{siteContent.hero.summary}</p>
+          <figure class="hero-testimonial" aria-label="Client outcome">
+            <blockquote>
+              {siteContent.hero.proofPoint}
+            </blockquote>
+            <figcaption>Recent prototype outcome</figcaption>
+          </figure>
+          <div class="hero-actions">
+            <a class="button" href={siteContent.hero.primaryCta.href}>{siteContent.hero.primaryCta.label}</a>
+            <a class="button-subtle" href="/work/">Inspect work logs</a>
+          </div>
+        </div>
+
+        <div class="hero-visual hero-photo-stack" aria-label="Real-world workflow context">
+          <figure class="hero-photo-card">
+            <img
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80"
+              alt="Operations team reviewing workflow data on screens and documents"
+              width="1200"
+              height="800"
+              loading="eager"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </div>
+
+      <div class="metrics" aria-label="Proof metrics">
+        <ProofMetricStrip metrics={metrics} />
+      </div>
+    </section>
+
+    <ThesisBlock
+      label="Thesis"
+      title="Industrial AI is workflow redesign with proof"
+      text="The job is not adding AI features. The job is removing bottlenecks with accountable systems."
+      variant="ink"
+    />
+
+    <SectionBlock
+      id="problems"
+      label="What This Is Useful For"
+      title="Where this creates measurable value"
+      intro="Workflows where delay, rework, and inconsistency are costing real money."
+      variant="band"
+      className="section-density-light section-problems"
+    >
+      <ul class="list split-list">
+        {
+          siteContent.problemClasses.map((item) => <li>{item}</li>)
+        }
+      </ul>
+    </SectionBlock>
+
+    <SectionBlock
+      id="approach"
+      label="How I Work"
+      title="Five steps to a justified go or no-go"
+      intro="Built to reach a clear invest-or-stop decision, not a slide deck."
+      className="section-density-dense"
+    >
+      <ol class="process process-map">
+        {
+          siteContent.approach.map((item) => (
+            <li>
+              <span class="step-index" aria-label={`Step ${item.step}`}>{item.step}</span>
+              <strong>{item.title}</strong>
+              <p>{item.text}</p>
+              <p class="step-outcome">Outcome: {item.outcome}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </SectionBlock>
+
+    <SectionBlock
+      id="capabilities"
+      label="What I Can Build"
+      title="Implementation patterns I repeatedly prototype"
+      intro="Practical patterns used to remove bottlenecks and reduce decision latency."
+      variant="band"
+      className="section-density-light section-capabilities"
+    >
+      <div class="grid two">
+        {
+          siteContent.capabilities.map((item) => (
+            <article class="card">
+              <strong>{item}</strong>
+            </article>
+          ))
+        }
+      </div>
+    </SectionBlock>
+
+    <SectionBlock
+      id="why-dave"
+      label="Why Dave"
+      title="A practical bridge between strategy and implementation"
+      intro={siteContent.whyDave.lead}
+      variant="ink"
+      className="section-why-dave"
+    >
+      <div class="plus-line">
+        <div>Software engineer</div>
+        <span>+</span>
+        <div>Systems thinker</div>
+        <span>+</span>
+        <div>Former business owner</div>
+        <span>+</span>
+        <div>Prototype builder</div>
+      </div>
+      <ul class="list">
+        {
+          siteContent.whyDave.points.map((item) => <li>{item}</li>)
+        }
+      </ul>
+    </SectionBlock>
+
+    <SectionBlock
+      id="thinking"
+      label="How I Think"
+      title="Principles for practical AI adoption"
+      intro="Technology choices must be accountable to operational outcomes."
+      variant="band"
+      className="section-density-light section-thinking"
+    >
+      <div class="grid two principles-grid" aria-label="Principles for practical AI adoption">
+        {
+          siteContent.principles.map((item) => (
+            <article class="card principle-card">
+              <p>{item}</p>
+            </article>
+          ))
+        }
+      </div>
+    </SectionBlock>
+
+    <SectionBlock
+      id="when-not-to-use-ai"
+      label="Decision Boundary"
+      title="When AI is not the right tool"
+      intro="Practical constraints that keep systems reliable and accountable."
+      className="section-density-light section-decision-boundary"
+    >
+      <ul class="list split-list">
+        {
+          siteContent.whenNotToUseAi.map((item) => <li>{item}</li>)
+        }
+      </ul>
+    </SectionBlock>
+
+    <SectionBlock
+      id="credibility"
+      label="Proof Standard"
+      title="How prototype quality is made inspectable"
+      intro="Evidence gates used before any recommendation to scale investment."
+      variant="band"
+      className="section-density-light section-proof-standard"
+    >
+      <ul class="list split-list">
+        {
+          siteContent.credibility.map((item) => <li>{item}</li>)
+        }
+      </ul>
+    </SectionBlock>
+
+    <SectionBlock
+      id="proof"
+      label="Work Evidence"
+      title="Recent proof structures"
+      intro="Each case shows the problem, design boundary, implementation, and measurable result."
+      className="section-density-dense section-proof"
+    >
+      <div class="grid two evidence-grid">
+        {
+          siteContent.projects.slice(0, 2).map((project) => (
+            <ProjectEvidenceCard
+              title={project.title}
+              mechanism={project.summary}
+              problem={project.problem}
+              boundary={project.boundary}
+              outcome={project.outcome}
+              constraints={project.constraints}
+              href={`/work/${project.slug}/`}
+            />
+          ))
+        }
+      </div>
+      <p>
+        <a class="inline-link" href="/work/">See all projects and case-study structure</a>
+      </p>
+    </SectionBlock>
+
+    <SiteFooter />
+  </main>
+</BaseLayout>

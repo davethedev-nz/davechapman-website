@@ -1,43 +1,89 @@
-# Astro Starter Kit: Minimal
+# Dave Chapman Website
 
-```sh
-npm create astro@latest -- --template minimal
+Static personal-brand site built with Astro.
+
+Purpose: communicate a clear commercial position around redesigning business workflows with AI, automation, and modern software systems, then proving value through rapid prototypes.
+
+## Stack
+
+- Astro (static-first)
+- Plain CSS
+- Minimal JavaScript
+- GitHub Actions for CI and deployment
+
+## Local Setup
+
+1. Install dependencies:
+
+```bash
+npm ci
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+2. Start dev server:
 
-## 🚀 Project Structure
+```bash
+npm run dev
+```
 
-Inside of your Astro project, you'll see the following folders and files:
+3. Build for production:
+
+```bash
+npm run build
+```
+
+## Verification Commands
+
+```bash
+npm run format:check
+npm run check
+npm run test
+npm run build
+```
+
+## Repository Structure
 
 ```text
-/
+.
+├── docs/
+│   └── positioning-hypothesis.md
 ├── public/
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   ├── pages/
+│   └── styles/
+├── test/
+└── .github/workflows/
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Content Editing Notes
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- Core copy is centralized in `src/content/siteContent.ts`.
+- Page assembly is in `src/pages/index.astro`.
+- Reusable section frame is in `src/components/SectionBlock.astro`.
+- Metadata and structured data are in `src/layouts/BaseLayout.astro`.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## SEO And Discovery
 
-## 🧞 Commands
+- Canonical tags and social metadata are set in `BaseLayout`.
+- Structured Person metadata is emitted via JSON-LD.
+- `public/sitemap.xml` is versioned directly for simplicity and portability.
+- `public/robots.txt` is included.
 
-All commands are run from the root of the project, from a terminal:
+## Deployment Overview
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+The GitHub Actions workflow:
 
-## 👀 Want to learn more?
+1. Runs on pull requests and pushes to `main`.
+2. Installs dependencies from lockfile with `npm ci`.
+3. Runs formatting check, type/check validation, tests, and build.
+4. Deploys only on successful pushes to `main`.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Deployment is intentionally isolated in the workflow so target-specific changes are easy to modify.
+
+## Configuration Notes
+
+`astro.config.mjs` is set to `https://davechapman.ai` for production.
+
+`npm run check` currently requires Node 20+ in this repository due to upstream tooling constraints in `@astrojs/check`. Build and tests run on Node 18+, but CI is pinned to Node 20 to guarantee full verification.

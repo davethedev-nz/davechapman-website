@@ -1,0 +1,55 @@
+---
+interface Props {
+  title: string;
+  mechanism: string;
+  problem: string;
+  boundary: string;
+  outcome: string;
+  constraints: string;
+  href?: string;
+}
+
+const {
+  title,
+  mechanism,
+  problem,
+  boundary,
+  outcome,
+  constraints,
+  href,
+} = Astro.props;
+---
+
+<article class="project-evidence-card">
+  <div class="mini-trace" aria-hidden="true">
+    <span>Pressure</span>
+    <span>Boundary</span>
+    <span>Mechanism</span>
+    <span>Outcome</span>
+  </div>
+  <h3>{title}</h3>
+  <p class="outcome-signal">{outcome}</p>
+  <dl>
+    <div>
+      <dt>Problem</dt>
+      <dd>{problem}</dd>
+    </div>
+    <div>
+      <dt>Decision boundary</dt>
+      <dd>{boundary}</dd>
+    </div>
+    <div>
+      <dt>Mechanism</dt>
+      <dd>{mechanism}</dd>
+    </div>
+    <div class="constraints">
+      <dt>Constraint</dt>
+      <dd>{constraints}</dd>
+    </div>
+  </dl>
+  {href && (
+    <p>
+      <a class="inline-link" href={href}>Open case study</a>
+    </p>
+  )}
+</article>

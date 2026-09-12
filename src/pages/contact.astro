@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TraceRail from '../components/TraceRail.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { siteContent } from '../content/siteContent';
+
+const currentPath = Astro.url.pathname;
+
+const contactTrace = [
+  {
+    id: 'workflow',
+    label: 'Bring one workflow',
+    note: 'Manual, expensive, or inconsistent process',
+  },
+  {
+    id: 'map',
+    label: 'Map decision boundaries',
+    note: 'Identify software-owned and human-owned decisions',
+  },
+  {
+    id: 'next-step',
+    label: 'Define practical next step',
+    note: 'Prototype recommendation and proof criteria',
+  },
+];
+---
+
+<BaseLayout
+  title="Contact | Dave Chapman"
+  description={siteContent.contact.text}
+  canonical={`${siteContent.site.canonical}contact/`}
+  ogImage={`${siteContent.site.canonical}social-preview.svg`}
+>
+  <main id="main-content" class="site page-shell">
+    <SiteHeader currentPath={currentPath} />
+
+    <header class="page-header">
+      <p class="section-label">Contact</p>
+      <h1>{siteContent.contact.title}</h1>
+      <p>{siteContent.contact.text}</p>
+      <p>
+        <a class="button" href={siteContent.contact.href}>{siteContent.contact.button}</a>
+      </p>
+    </header>
+
+    <section class="section">
+      <div class="section-inner section-duo">
+        <div>
+          <h2>What to bring</h2>
+          <ul class="list">
+            <li>One workflow where delay, cost, or inconsistency is visible.</li>
+            <li>Current tools and handoffs involved.</li>
+            <li>What would count as a meaningful improvement.</li>
+          </ul>
+        </div>
+        <TraceRail ariaLabel="Contact conversation flow" steps={contactTrace} />
+      </div>
+    </section>
+
+    <SiteFooter />
+  </main>
+</BaseLayout>
