@@ -1,252 +1,288 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Orchestration Ledger - First Screen Study</title>
-  <style>
-    :root {
-      --bg: #f3f0e7;
-      --bg-soft: #faf7ef;
-      --ink: #1a252d;
-      --ink-soft: #4a5a66;
-      --line: #8d9891;
-      --edge: #cbc3b5;
-      --accent: #1f6f66;
-      --signal: #a64c2f;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: "Public Sans", "Segoe UI", sans-serif;
-    }
-
-    .shell {
-      max-width: 1260px;
-      min-height: 100vh;
-      margin: 0 auto;
-      padding: 24px;
-      display: grid;
-      grid-template-columns: 4fr 8fr;
-      gap: 24px;
-      position: relative;
-      align-items: center;
-    }
-
-    .ledger-spine {
-      position: absolute;
-      left: calc(34% - 1px);
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: repeating-linear-gradient(to bottom, var(--line), var(--line) 16px, transparent 16px, transparent 24px);
-    }
-
-    .node {
-      position: absolute;
-      left: calc(34% - 6px);
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
-      background: var(--bg-soft);
-      border: 2px solid var(--accent);
-    }
-
-    .node.n1 { top: 16%; }
-    .node.n2 { top: 42%; border-color: var(--signal); }
-    .node.n3 { top: 68%; }
-
-    .identity {
-      display: grid;
-      gap: 16px;
-      align-content: start;
-      max-width: 25rem;
-    }
-
-    .kicker {
-      margin: 0;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: var(--ink-soft);
-      font-family: "IBM Plex Mono", monospace;
-    }
-
-    h1 {
-      margin: 0;
-      font-family: "Newsreader", Georgia, serif;
-      font-size: clamp(2.7rem, 5vw, 5.6rem);
-      line-height: 1.02;
-      letter-spacing: -0.02em;
-      max-width: 9ch;
-    }
-
-    .identity p {
-      margin: 0;
-      color: var(--ink-soft);
-      line-height: 1.58;
-    }
-
-    .board {
-      background: var(--bg-soft);
-      border: 1px solid var(--edge);
-      box-shadow: 0 14px 30px rgba(17, 28, 35, 0.08);
-      border-radius: 12px;
-      padding: 12px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      table-layout: fixed;
-    }
-
-    caption {
-      text-align: left;
-      margin-bottom: 8px;
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--ink-soft);
-      font-family: "IBM Plex Mono", monospace;
-    }
-
-    th, td {
-      border-top: 1px solid var(--edge);
-      vertical-align: top;
-      padding: 12px;
-      text-align: left;
-    }
-
-    tr:first-child th,
-    tr:first-child td { border-top: 0; }
-
-    th {
-      width: 32%;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--ink-soft);
-      font-family: "IBM Plex Mono", monospace;
-    }
-
-    td {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    .flag {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 3px 7px;
-      border: 1px solid var(--signal);
-      color: var(--signal);
-      border-radius: 999px;
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-family: "IBM Plex Mono", monospace;
-    }
-
-    .footer-strip {
-      margin-top: 12px;
-      border-top: 1px solid var(--edge);
-      padding-top: 10px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-    }
-
-    .metric {
-      background: #fff;
-      border: 1px solid var(--edge);
-      border-radius: 8px;
-      padding: 8px;
-    }
-
-    .metric strong {
-      display: block;
-      font-family: "Newsreader", Georgia, serif;
-      font-size: 1.5rem;
-      line-height: 1;
-    }
-
-    .metric span {
-      display: block;
-      margin-top: 2px;
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--ink-soft);
-      font-family: "IBM Plex Mono", monospace;
-    }
-
-    @media (max-width: 980px) {
-      .shell {
-        min-height: auto;
-        grid-template-columns: 1fr;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Orchestration Ledger - First Screen Study</title>
+    <style>
+      :root {
+        --bg: #f3f0e7;
+        --bg-soft: #faf7ef;
+        --ink: #1a252d;
+        --ink-soft: #4a5a66;
+        --line: #8d9891;
+        --edge: #cbc3b5;
+        --accent: #1f6f66;
+        --signal: #a64c2f;
       }
 
-      .ledger-spine,
-      .node { display: none; }
-    }
+      * {
+        box-sizing: border-box;
+      }
 
-    @media (max-width: 640px) {
-      .footer-strip { grid-template-columns: 1fr; }
-      th { width: 38%; }
-    }
-  </style>
-</head>
-<body>
-  <main class="shell" aria-label="Homepage first-screen reference">
-    <div class="ledger-spine" aria-hidden="true"></div>
-    <div class="node n1" aria-hidden="true"></div>
-    <div class="node n2" aria-hidden="true"></div>
-    <div class="node n3" aria-hidden="true"></div>
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: 'Public Sans', 'Segoe UI', sans-serif;
+      }
 
-    <section class="identity" aria-labelledby="heading">
-      <p class="kicker">Dave Chapman // AI-native engineering</p>
-      <h1 id="heading">Design decision ownership before you automate.</h1>
-      <p>
-        This opening intentionally foregrounds method over self-introduction.
-        The visitor should understand the operating thesis in one glance.
-      </p>
-    </section>
+      .shell {
+        max-width: 1260px;
+        min-height: 100vh;
+        margin: 0 auto;
+        padding: 24px;
+        display: grid;
+        grid-template-columns: 4fr 8fr;
+        gap: 24px;
+        position: relative;
+        align-items: center;
+      }
 
-    <section class="board" aria-label="Decision Review Board">
-      <table>
-        <caption>Decision Review Board</caption>
-        <tr>
-          <th scope="row">Signal</th>
-          <td>Repeated manual judgments, slow handoffs, and inconsistent outcomes in one workflow lane.</td>
-        </tr>
-        <tr>
-          <th scope="row">Decision owner</th>
-          <td>Software handles deterministic and high-confidence paths; accountable humans own exceptions.</td>
-        </tr>
-        <tr>
-          <th scope="row">Automation route</th>
-          <td>Thin-slice orchestration across existing systems with explicit boundary stamps at handoff points.</td>
-        </tr>
-        <tr>
-          <th scope="row">Proof gate</th>
-          <td>
-            Success is measured against latency, quality, and override rates before any production investment.
-            <span class="flag">If rules win, do not use AI</span>
-          </td>
-        </tr>
-      </table>
+      .ledger-spine {
+        position: absolute;
+        left: calc(34% - 1px);
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: repeating-linear-gradient(
+          to bottom,
+          var(--line),
+          var(--line) 16px,
+          transparent 16px,
+          transparent 24px
+        );
+      }
 
-      <div class="footer-strip" aria-label="proof highlights">
-        <div class="metric"><strong>2-6w</strong><span>prototype cycle</span></div>
-        <div class="metric"><strong>1</strong><span>workflow per diagnostic</span></div>
-        <div class="metric"><strong>5</strong><span>decision stages</span></div>
-      </div>
-    </section>
-  </main>
-</body>
+      .node {
+        position: absolute;
+        left: calc(34% - 6px);
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        background: var(--bg-soft);
+        border: 2px solid var(--accent);
+      }
+
+      .node.n1 {
+        top: 16%;
+      }
+      .node.n2 {
+        top: 42%;
+        border-color: var(--signal);
+      }
+      .node.n3 {
+        top: 68%;
+      }
+
+      .identity {
+        display: grid;
+        gap: 16px;
+        align-content: start;
+        max-width: 25rem;
+      }
+
+      .kicker {
+        margin: 0;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        color: var(--ink-soft);
+        font-family: 'IBM Plex Mono', monospace;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: clamp(2.7rem, 5vw, 5.6rem);
+        line-height: 1.02;
+        letter-spacing: -0.02em;
+        max-width: 9ch;
+      }
+
+      .identity p {
+        margin: 0;
+        color: var(--ink-soft);
+        line-height: 1.58;
+      }
+
+      .board {
+        background: var(--bg-soft);
+        border: 1px solid var(--edge);
+        box-shadow: 0 14px 30px rgba(17, 28, 35, 0.08);
+        border-radius: 12px;
+        padding: 12px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      caption {
+        text-align: left;
+        margin-bottom: 8px;
+        font-size: 0.76rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--ink-soft);
+        font-family: 'IBM Plex Mono', monospace;
+      }
+
+      th,
+      td {
+        border-top: 1px solid var(--edge);
+        vertical-align: top;
+        padding: 12px;
+        text-align: left;
+      }
+
+      tr:first-child th,
+      tr:first-child td {
+        border-top: 0;
+      }
+
+      th {
+        width: 32%;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--ink-soft);
+        font-family: 'IBM Plex Mono', monospace;
+      }
+
+      td {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .flag {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 3px 7px;
+        border: 1px solid var(--signal);
+        color: var(--signal);
+        border-radius: 999px;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-family: 'IBM Plex Mono', monospace;
+      }
+
+      .footer-strip {
+        margin-top: 12px;
+        border-top: 1px solid var(--edge);
+        padding-top: 10px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .metric {
+        background: #fff;
+        border: 1px solid var(--edge);
+        border-radius: 8px;
+        padding: 8px;
+      }
+
+      .metric strong {
+        display: block;
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: 1.5rem;
+        line-height: 1;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 2px;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--ink-soft);
+        font-family: 'IBM Plex Mono', monospace;
+      }
+
+      @media (max-width: 980px) {
+        .shell {
+          min-height: auto;
+          grid-template-columns: 1fr;
+        }
+
+        .ledger-spine,
+        .node {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .footer-strip {
+          grid-template-columns: 1fr;
+        }
+        th {
+          width: 38%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell" aria-label="Homepage first-screen reference">
+      <div class="ledger-spine" aria-hidden="true"></div>
+      <div class="node n1" aria-hidden="true"></div>
+      <div class="node n2" aria-hidden="true"></div>
+      <div class="node n3" aria-hidden="true"></div>
+
+      <section class="identity" aria-labelledby="heading">
+        <p class="kicker">Dave Chapman // AI-native engineering</p>
+        <h1 id="heading">Design decision ownership before you automate.</h1>
+        <p>
+          This opening intentionally foregrounds method over self-introduction. The visitor should
+          understand the operating thesis in one glance.
+        </p>
+      </section>
+
+      <section class="board" aria-label="Decision Review Board">
+        <table>
+          <caption>
+            Decision Review Board
+          </caption>
+          <tr>
+            <th scope="row">Signal</th>
+            <td>
+              Repeated manual judgments, slow handoffs, and inconsistent outcomes in one workflow
+              lane.
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Decision owner</th>
+            <td>
+              Software handles deterministic and high-confidence paths; accountable humans own
+              exceptions.
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Automation route</th>
+            <td>
+              Thin-slice orchestration across existing systems with explicit boundary stamps at
+              handoff points.
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Proof gate</th>
+            <td>
+              Success is measured against latency, quality, and override rates before any production
+              investment.
+              <span class="flag">If rules win, do not use AI</span>
+            </td>
+          </tr>
+        </table>
+
+        <div class="footer-strip" aria-label="proof highlights">
+          <div class="metric"><strong>2-6w</strong><span>prototype cycle</span></div>
+          <div class="metric"><strong>1</strong><span>workflow per diagnostic</span></div>
+          <div class="metric"><strong>5</strong><span>decision stages</span></div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>

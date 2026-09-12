@@ -4,7 +4,10 @@ import test from 'node:test';
 
 const copyFile = readFileSync(new URL('../src/content/siteContent.ts', import.meta.url), 'utf8');
 const pageFile = readFileSync(new URL('../src/pages/index.astro', import.meta.url), 'utf8');
-const footerFile = readFileSync(new URL('../src/components/SiteFooter.astro', import.meta.url), 'utf8');
+const footerFile = readFileSync(
+  new URL('../src/components/SiteFooter.astro', import.meta.url),
+  'utf8',
+);
 
 test('headline emphasizes proof and practical use', () => {
   assert.match(copyFile, /Find the work AI should be doing\. Then prove it\./);

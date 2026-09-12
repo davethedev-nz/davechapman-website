@@ -36,6 +36,7 @@ Primary motif: Orchestration Ledger.
 ```
 
 ### Color usage rules
+
 - No gradient blobs. Use flat, intentional surfaces and occasional high-contrast bands.
 - Use `--color-signal` only for boundaries, exceptions, and contrarian statements.
 - Never use accent and signal at equal visual weight in the same local block.
@@ -43,6 +44,7 @@ Primary motif: Orchestration Ledger.
 ## 3) Typography
 
 ### Font families
+
 - Display and essay headings: Newsreader Variable.
 - Body and interface: Public Sans.
 - Metadata, diagram labels, and IDs: IBM Plex Mono.
@@ -51,9 +53,9 @@ Primary motif: Orchestration Ledger.
 
 ```css
 :root {
-  --font-display: "Newsreader", "Iowan Old Style", "Times New Roman", serif;
-  --font-body: "Public Sans", "Segoe UI", "Helvetica Neue", sans-serif;
-  --font-mono: "IBM Plex Mono", "SFMono-Regular", "Consolas", monospace;
+  --font-display: 'Newsreader', 'Iowan Old Style', 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', 'Consolas', monospace;
 
   --fs-00: clamp(0.72rem, 0.69rem + 0.12vw, 0.8rem);
   --fs-0: clamp(0.85rem, 0.8rem + 0.18vw, 0.95rem);
@@ -70,6 +72,7 @@ Primary motif: Orchestration Ledger.
 ```
 
 ### Typography rules
+
 - First-screen heading max width: 9.5ch.
 - Long-form content max width: 66ch.
 - Meta labels uppercase with `0.08em` tracking.
@@ -100,6 +103,7 @@ Primary motif: Orchestration Ledger.
 ```
 
 ### Grid rules
+
 - Default desktop grid: 12 columns.
 - First viewport composition: 4/8 split, where 8-column area is the Decision Review Board.
 - Standard evidence sections: 8-column narrative plus 4-column ledger rail.
@@ -123,6 +127,7 @@ Primary motif: Orchestration Ledger.
 ```
 
 ### Depth rules
+
 - No glass effects.
 - No floating card clouds.
 - Elevation is used only for active inspection targets.
@@ -142,6 +147,7 @@ Primary motif: Orchestration Ledger.
 ```
 
 ### Motif anatomy
+
 - Spine: 2px vertical line, consistent across large layouts.
 - Node: 10px circular checkpoint, 14px when active.
 - Fork tab: 28px to 40px horizontal tab entering content block.
@@ -149,7 +155,9 @@ Primary motif: Orchestration Ledger.
 - Evidence seal: small filled badge for measured outcomes.
 
 ### Semantics rule
+
 Each motif element must represent one of:
+
 - signal,
 - ownership,
 - mechanism,
@@ -169,21 +177,25 @@ Never render motif-only decoration.
 ## 8) Failure Mode Lens (Global Interaction)
 
 ### Behavior
+
 - UI control: two-state switch in global nav, `Off` by default.
 - State storage: `localStorage` key `failure-lens`.
 - Root attribute: `data-failure-lens="on|off"` on `html`.
 
 ### Visual response when `on`
+
 - Reveal exception rows on project cards.
 - Highlight override checkpoints in diagrams.
 - Show "what can fail" callout row in process components.
 
 ### Performance and fallback
+
 - JS required for toggle persistence.
 - Without JS, all critical failure data is visible inline by default.
 - No animation-heavy transitions; only opacity and border-color changes.
 
 ### Accessibility
+
 - Switch implemented as button with `aria-pressed`.
 - Label includes status text for screen readers.
 
@@ -199,11 +211,13 @@ Never render motif-only decoration.
 ```
 
 ### Allowed motion
+
 - Section reveal with 10px rise.
 - Ledger node state transition.
 - Diagram exception-path fade when Failure Lens toggles.
 
 ### Reduced motion
+
 - Disable transforms.
 - Keep visibility changes instantaneous.
 
@@ -219,6 +233,7 @@ Never render motif-only decoration.
 ```
 
 ### Behavior by breakpoint
+
 - Under `--bp-md`: remove side rails, render compact ledger chips.
 - `--bp-md` to `--bp-lg`: first viewport stacks; Decision Review Board remains above fold.
 - Above `--bp-lg`: full split composition and persistent spine.

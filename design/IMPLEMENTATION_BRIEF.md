@@ -7,6 +7,7 @@ This brief is for the implementation agent applying the Orchestration Ledger red
 The site already has the right strategic content and positioning. The codebase in [src/content/siteContent.ts](../src/content/siteContent.ts) and the homepage in [src/pages/index.astro](../src/pages/index.astro) establish a practical, evidence-first identity without sounding generic.
 
 This means the implementation brief should prioritize refinement, not reinvention:
+
 - Keep the strong positioning and language around workflow bottlenecks and human ownership.
 - Tighten the homepage into a more memorable system-review composition.
 - Increase the consistency of the signature motif and proof diagrams.
@@ -28,10 +29,12 @@ Ship a site that feels authored and specific to Dave's positioning in AI-native 
 ## 4) Files Most Likely To Change
 
 Core styling and layout:
+
 - src/styles/global.css
 - src/layouts/BaseLayout.astro
 
 Homepage and page structure:
+
 - src/pages/index.astro
 - src/pages/work/index.astro
 - src/pages/work/[slug].astro
@@ -41,6 +44,7 @@ Homepage and page structure:
 - src/pages/contact.astro
 
 Components to update or create:
+
 - src/components/TraceRail.astro
 - src/components/ThesisBlock.astro
 - src/components/ProofMetricStrip.astro
@@ -63,6 +67,7 @@ Components to update or create:
 These should be treated as the next iteration after the base identity is stable.
 
 ### High-priority enhancements
+
 - Replace the current stock-photo-led hero with a diagrammatic first-screen system board.
 - Add a small, recurring ledger motif to the header, case-study cards, and article list items.
 - Introduce a stronger visual distinction between thesis blocks, evidence blocks, and process blocks.
@@ -70,17 +75,20 @@ These should be treated as the next iteration after the base identity is stable.
 - Build a consistent before/after process visual for at least the top two case studies.
 
 ### Medium-priority enhancements
+
 - Add an optional failure-lens interaction that exposes exception paths and human override points.
 - Turn project cards into evidence objects with consistent metadata rows, decision ownership labels, and outcome callouts.
 - Add a subtle article reading rail or reading-progress treatment for long-form writing pages.
 - Introduce stronger section transitions between page blocks so the site feels authored, not templated.
 
 ### Lower-priority polish
+
 - Subtle SVG line animation on diagrams, only if it does not slow the page or distract from reading.
 - Hover-based annotations on key process nodes.
 - Small editorial details such as chapter markers, note labels, and technical metadata blocks.
 
 ### Enhancement principle
+
 Keep all enhancements anchored to real engineering meaning. If an effect only looks clever and does not clarify risk, ownership, or proof, it should be removed.
 
 ## 7) Optional Polish (Can Defer)
@@ -93,16 +101,19 @@ Keep all enhancements anchored to real engineering meaning. If an effect only lo
 ## 8) Failure Mode Lens: Technical Spec
 
 ### Required behavior
+
 - Add a nav toggle button labeled `Failure Lens`.
 - Toggle sets `data-failure-lens="on|off"` on root `html`.
 - Persist state to `localStorage` key `failure-lens`.
 
 ### UI response
+
 - Project cards: reveal/hide exception row.
 - System diagrams: emphasis class on exception paths.
 - Process timelines: show/hide failure checkpoints.
 
 ### Progressive enhancement
+
 - No JS fallback: render all failure information visible by default.
 - JS enhancement: allow decluttering via `off` mode.
 
@@ -149,12 +160,14 @@ Keep all enhancements anchored to real engineering meaning. If an effect only lo
 ## 14) Essential Vs Optional
 
 ### Essential
+
 - Decision Review Board first viewport.
 - Failure Mode Lens.
 - Orchestration Ledger semantics.
 - Evidence-first case anatomy.
 
 ### Optional polish
+
 - Animated path draws.
 - Scroll-spy node states.
 - Minor hover reveal transitions.

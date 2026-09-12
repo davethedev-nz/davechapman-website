@@ -1,23 +1,27 @@
 # Industrial AI Design Brief
 
 ## Core Direction
+
 Industrial AI. Dark, technical, confident, minimal.
 
 Build a site that feels like a real systems engineer's command surface, not an AI marketing page.
 
 ## Brand Position
+
 Dave is the engineer who identifies human bottlenecks and builds systems that remove them.
 
 Primary message:
 Real systems over hype. Outcomes over buzzwords.
 
 ## Visual Language
+
 - Dark base surfaces with high-contrast text.
 - Signal orange accent for boundaries, risk, and decision points.
 - Strong typography with clear hierarchy and generous negative space.
 - Minimal UI chrome; no decorative effects.
 
 Avoid:
+
 - Gradient blobs
 - Glass cards
 - Logo walls
@@ -25,9 +29,11 @@ Avoid:
 - Decorative terminal mockups
 
 ## Content Strategy
+
 Lead with operational pain and measurable outcomes.
 
 Narrative order:
+
 1. Bottleneck
 2. Decision boundary
 3. System design
@@ -37,7 +43,9 @@ Narrative order:
 Use short sentences. Remove filler language.
 
 ## Proof Style
+
 Show competence through artifacts:
+
 - Architecture diagrams
 - Workflow visuals
 - Before/after process maps
@@ -45,6 +53,7 @@ Show competence through artifacts:
 - Outcome metrics tied to business impact
 
 ## Interaction Principles
+
 - Motion is sparse and functional.
 - Reveal complexity progressively.
 - Keep all critical info accessible without JS.
@@ -53,7 +62,9 @@ Required interaction:
 Failure Lens toggle to expose exception paths and human override points.
 
 ## Homepage Requirements
+
 First viewport must communicate:
+
 - Who Dave helps
 - What bottleneck he solves
 - How he works
@@ -62,6 +73,7 @@ First viewport must communicate:
 Do not open with a generic personal hero.
 
 ## Tone
+
 - Technical
 - Direct
 - Calmly contrarian
@@ -70,6 +82,7 @@ Do not open with a generic personal hero.
 Never use inflated AI claims.
 
 ## Implementation Priorities
+
 1. Dark theme token system with signal orange accent.
 2. Typography and layout hierarchy pass.
 3. Homepage first viewport redesign around bottleneck -> system -> proof.
@@ -77,6 +90,7 @@ Never use inflated AI claims.
 5. Copy compression pass across all pages.
 
 ## Success Criteria
+
 - A CTO can understand the value proposition in under 10 seconds.
 - The site demonstrates systems thinking without reading every paragraph.
 - The design is recognizable as Dave's, not interchangeable with a generic AI engineer site.

@@ -147,14 +147,11 @@ export const siteContent = {
       slug: 'support-ticket-triage',
       title: 'AI-assisted support ticket triage',
       summary: 'Rerouted mixed-quality inbound tickets into confidence-ranked lanes.',
-      problem:
-        'Support teams re-read similar tickets and escalated too early.',
+      problem: 'Support teams re-read similar tickets and escalated too early.',
       boundary:
         'Automation classifies and drafts routing; team leads own final priority decisions.',
-      outcome:
-        'Median first-response handoff dropped to under 20 minutes in pilot runs.',
-      constraints:
-        'Low-confidence tickets always route to manual review. No silent auto-close.',
+      outcome: 'Median first-response handoff dropped to under 20 minutes in pilot runs.',
+      constraints: 'Low-confidence tickets always route to manual review. No silent auto-close.',
       before:
         'Unstructured inbox triage, repeated context gathering, inconsistent severity handling.',
       after:
@@ -164,22 +161,21 @@ export const siteContent = {
       timeline: '4 weeks',
       scope: 'Single support queue and escalation lane',
       diagramSrc: '/images/ticket-platform.png',
-      diagramAlt: 'Support triage workflow diagram showing AI intake, routing, and human escalation review.',
+      diagramAlt:
+        'Support triage workflow diagram showing AI intake, routing, and human escalation review.',
     },
     {
       slug: 'agentic-dev-workflow',
       title: 'Agentic development workflow with human checkpoints',
-      summary: 'Reduced review latency by automating repeatable implementation and verification loops.',
+      summary:
+        'Reduced review latency by automating repeatable implementation and verification loops.',
       problem:
         'Teams lost cycle time to repeatable setup, regression checks, and boilerplate updates.',
       boundary:
         'Agents can propose and implement scoped changes; merge decisions stay human-owned.',
-      outcome:
-        'Pull request cycle time fell 28% on bounded task classes.',
-      constraints:
-        'All generated changes require deterministic checks and reviewer approval.',
-      before:
-        'Developers manually handled repetitive setup and cross-file consistency updates.',
+      outcome: 'Pull request cycle time fell 28% on bounded task classes.',
+      constraints: 'All generated changes require deterministic checks and reviewer approval.',
+      before: 'Developers manually handled repetitive setup and cross-file consistency updates.',
       after:
         'Agents complete repetitive coding passes while humans evaluate intent, risk, and release quality.',
       stack: 'Python, CI/CD automation, test gates, LLM routing',
@@ -187,7 +183,8 @@ export const siteContent = {
       timeline: '3 weeks',
       scope: 'Internal delivery workflow and CI/CD integration',
       diagramSrc: '/images/agent-delivery-cycle-final.png',
-      diagramAlt: 'Agent software delivery cycle with planning, implementation, verification, and human review gates.',
+      diagramAlt:
+        'Agent software delivery cycle with planning, implementation, verification, and human review gates.',
     },
   ],
   articles: [],
