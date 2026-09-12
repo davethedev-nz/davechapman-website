@@ -1466,7 +1466,9 @@ a {
     border-radius: 2px;
     background: currentColor;
     transform-origin: center;
-    transition: transform var(--motion-mid) var(--motion-ease), opacity var(--motion-mid) var(--motion-ease);
+    transition:
+      transform var(--motion-mid) var(--motion-ease),
+      opacity var(--motion-mid) var(--motion-ease);
   }
 
   .nav-toggle-label {
