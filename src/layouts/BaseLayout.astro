@@ -141,6 +141,13 @@ const siteOrigin = siteContent.site.canonical;
           if (event.key === 'Escape') closeMenu();
         });
 
+        document.addEventListener('click', (event) => {
+          if (!mobileMq.matches) return;
+          const target = event.target;
+          if (!(target instanceof Node)) return;
+          if (!header.contains(target)) closeMenu();
+        });
+
         const syncMenuToViewport = () => {
           if (!mobileMq.matches) closeMenu();
         };
