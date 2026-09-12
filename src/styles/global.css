@@ -1481,15 +1481,20 @@ a {
   }
 
   .header.is-nav-open .nav {
-    position: fixed;
-    top: 4.05rem;
-    right: 0.85rem;
-    left: 0.85rem;
-    z-index: 55;
     display: grid;
     justify-content: stretch;
     gap: 0.35rem;
     margin: 0;
+  }
+
+  .header.is-nav-open {
+    position: fixed;
+    top: 0.85rem;
+    right: 0.85rem;
+    left: 0.85rem;
+    z-index: 55;
+    display: grid;
+    gap: 0.55rem;
     max-width: 24rem;
     margin-left: auto;
     padding: 0.55rem;
@@ -1497,6 +1502,12 @@ a {
     border-radius: 0.85rem;
     background: linear-gradient(155deg, rgba(17, 25, 34, 0.97) 0%, rgba(11, 19, 27, 0.97) 100%);
     box-shadow: 0 18px 34px rgba(0, 0, 0, 0.45);
+  }
+
+  .header.is-nav-open .brand-wrap {
+    padding-right: 4.1rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid rgba(86, 98, 110, 0.4);
   }
 
   .header.is-nav-open::before {
@@ -1553,6 +1564,15 @@ a {
     font-size: 0.68rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+  }
+
+  .header.is-nav-open .nav a.nav-cta {
+    background: linear-gradient(135deg, #ff6a2b 0%, #ff8857 100%);
+    color: #12181e;
+    border: 1px solid rgba(255, 166, 122, 0.75);
+    box-shadow: 0 10px 22px rgba(255, 106, 43, 0.26);
+    font-weight: 700;
+    text-align: center;
   }
 
   .hero-testimonial {
