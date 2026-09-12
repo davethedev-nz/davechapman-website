@@ -1515,6 +1515,16 @@ a {
     pointer-events: auto;
   }
 
+  .header.is-nav-open .brand-wrap,
+  .header.is-nav-open .nav {
+    position: relative;
+    z-index: 56;
+  }
+
+  .header.is-nav-open .nav-toggle {
+    z-index: 56;
+  }
+
   .header.is-nav-open .nav-toggle {
     background: rgba(255, 106, 43, 0.24);
     border-color: rgba(255, 166, 122, 0.78);
