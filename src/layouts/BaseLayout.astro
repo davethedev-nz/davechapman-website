@@ -112,5 +112,46 @@ const siteOrigin = siteContent.site.canonical;
         }
       })();
     </script>
+    <script is:inline>
+      (() => {
+        const header = document.querySelector('.header');
+        const toggle = document.querySelector('.nav-toggle');
+        const nav = document.querySelector('#primary-nav');
+        if (!header || !toggle || !nav) return;
+
+        const mobileMq = window.matchMedia('(max-width: 760px)');
+
+        const closeMenu = () => {
+          header.classList.remove('is-nav-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        };
+
+        toggle.addEventListener('click', () => {
+          const open = header.classList.toggle('is-nav-open');
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+
+        nav.addEventListener('click', (event) => {
+          const target = event.target;
+          if (!(target instanceof Element)) return;
+          if (target.closest('a')) closeMenu();
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') closeMenu();
+        });
+
+        const syncMenuToViewport = () => {
+          if (!mobileMq.matches) closeMenu();
+        };
+
+        syncMenuToViewport();
+        if (typeof mobileMq.addEventListener === 'function') {
+          mobileMq.addEventListener('change', syncMenuToViewport);
+        } else if (typeof mobileMq.addListener === 'function') {
+          mobileMq.addListener(syncMenuToViewport);
+        }
+      })();
+    </script>
   </body>
 </html>

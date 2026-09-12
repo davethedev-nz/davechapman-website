@@ -13,7 +13,19 @@ const { currentPath } = Astro.props;
     <p class="brand">{siteContent.site.name}</p>
     <p class="brand-role">{siteContent.site.role}</p>
   </div>
-  <nav class="nav" aria-label="Primary">
+  <button
+    class="nav-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="primary-nav"
+    aria-label="Toggle navigation menu"
+  >
+    <span class="nav-toggle-line" aria-hidden="true"></span>
+    <span class="nav-toggle-line" aria-hidden="true"></span>
+    <span class="nav-toggle-line" aria-hidden="true"></span>
+    <span class="nav-toggle-label">Menu</span>
+  </button>
+  <nav id="primary-nav" class="nav" aria-label="Primary">
     <a href="/" class:list={[currentPath === '/' && 'is-active']}>Home</a>
     <a href="/work/" class:list={[currentPath.startsWith('/work') && 'is-active']}>Work</a>
     <a href="/writing/" class:list={[currentPath.startsWith('/writing') && 'is-active']}>Writing</a>
