@@ -20,31 +20,31 @@ const {
 } = Astro.props;
 ---
 
-<article class="project-evidence-card">
+<article class="project-evidence-card u-card-overflow-safe">
   <div class="mini-trace" aria-hidden="true">
     <span>Pressure</span>
     <span>Boundary</span>
     <span>Mechanism</span>
     <span>Outcome</span>
   </div>
-  <h3>{title}</h3>
-  <p class="outcome-signal">{outcome}</p>
+  <h3 class="u-break-anywhere">{title}</h3>
+  <p class="outcome-signal u-break-anywhere">{outcome}</p>
   <dl>
     <div>
       <dt>Problem</dt>
-      <dd>{problem}</dd>
+      <dd class="u-break-anywhere">{problem}</dd>
     </div>
     <div>
       <dt>Decision boundary</dt>
-      <dd>{boundary}</dd>
+      <dd class="u-break-anywhere">{boundary}</dd>
     </div>
     <div>
       <dt>Mechanism</dt>
-      <dd>{mechanism}</dd>
+      <dd class="u-break-anywhere">{mechanism}</dd>
     </div>
     <div class="constraints">
       <dt>Constraint</dt>
-      <dd>{constraints}</dd>
+      <dd class="u-break-anywhere">{constraints}</dd>
     </div>
   </dl>
   {href && (
