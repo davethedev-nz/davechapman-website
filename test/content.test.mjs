@@ -24,9 +24,9 @@ test('site includes core sections needed for commercial clarity', () => {
 
 test('homepage explains the commercial offer and buying path', () => {
   assert.match(pageFile, /How you can work with me/);
-  assert.match(pageFile, /Workflow Diagnostic/);
-  assert.match(pageFile, /Prototype Sprint/);
-  assert.match(pageFile, /Implementation \/ Handover/);
+  assert.match(copyFile, /Workflow Diagnostic/);
+  assert.match(copyFile, /Prototype Sprint/);
+  assert.match(copyFile, /Implementation \/ Handover/);
   assert.match(pageFile, /Start with one workflow, not an AI transformation programme\./);
 });
 
