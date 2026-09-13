@@ -11,17 +11,17 @@ const contactTrace = [
   {
     id: 'workflow',
     label: 'Bring one workflow',
-    note: 'Manual, expensive, or inconsistent process',
+    note: 'Something slow, costly, inconsistent, or frustrating',
   },
   {
     id: 'map',
-    label: 'Map decision boundaries',
-    note: 'Identify software-owned and human-owned decisions',
+    label: 'Decide what software should handle',
+    note: 'What stays with people and what can be automated',
   },
   {
     id: 'next-step',
-    label: 'Define practical next step',
-    note: 'Prototype recommendation and proof criteria',
+    label: 'Agree the next step',
+    note: 'Diagnostic, prototype, or implementation path',
   },
 ];
 ---
@@ -47,7 +47,8 @@ const contactTrace = [
     <section class="section">
       <div class="section-inner section-duo">
         <div>
-          <h2>What to bring</h2>
+          <h2>What happens first?</h2>
+          <p>A short conversation about one workflow causing delay, cost, inconsistency, or frustration.</p>
           <ul class="list">
             <li>One workflow where delay, cost, or inconsistency is visible.</li>
             <li>Current tools and handoffs involved.</li>
@@ -55,6 +56,30 @@ const contactTrace = [
           </ul>
         </div>
         <TraceRail ariaLabel="Contact conversation flow" steps={contactTrace} />
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2>Common questions</h2>
+        <div class="grid two">
+          <article class="card">
+            <strong>Do I need an AI strategy?</strong>
+            <p>No. Bring a business problem. The workflow and the decision-making are the starting point.</p>
+          </article>
+          <article class="card">
+            <strong>Do I need a technical specification?</strong>
+            <p>No. Understanding the workflow is part of the engagement. A specification can come later if the work proves worthwhile.</p>
+          </article>
+          <article class="card">
+            <strong>What could the outcome be?</strong>
+            <p>Typically one of: do nothing, improve the process, use standard automation, build a small prototype, or proceed to implementation.</p>
+          </article>
+          <article class="card">
+            <strong>What will it cost?</strong>
+            <p>The initial conversation is free. Paid work is scoped before starting, and engagements are designed to start small and stay bounded.</p>
+          </article>
+        </div>
       </div>
     </section>
 

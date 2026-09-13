@@ -66,8 +66,8 @@ const metrics = [
 
     <ThesisBlock
       label="Thesis"
-      title="Industrial AI is workflow redesign with proof"
-      text="The job is not adding AI features. The job is removing bottlenecks with accountable systems."
+      title="Applied AI for business operations is workflow redesign with proof"
+      text="The job is not adding AI features. The job is removing bottlenecks with accountable systems and a clear business case."
       variant="ink"
     />
 
@@ -84,6 +84,26 @@ const metrics = [
           siteContent.problemClasses.map((item) => <li>{item}</li>)
         }
       </ul>
+    </SectionBlock>
+
+    <SectionBlock
+      id="engagement"
+      label="How you can work with me"
+      title="Start with one workflow, not an AI transformation programme."
+      intro="The path is simple: diagnose the bottleneck, test the smallest useful intervention, and only then decide whether to implement."
+      className="section-density-dense"
+    >
+      <div class="grid three">
+        {
+          siteContent.engagement.map((item) => (
+            <article class="card">
+              <strong>{item.title}</strong>
+              <p>{item.text}</p>
+            </article>
+          ))
+        }
+      </div>
+      <p class="section-intro">Engagements start small, are scoped around one workflow, and are priced before work begins. Diagnostics and prototypes are bounded. Implementation follows proof.</p>
     </SectionBlock>
 
     <SectionBlock

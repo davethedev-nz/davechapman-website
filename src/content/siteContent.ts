@@ -2,18 +2,18 @@ export const siteContent = {
   site: {
     name: 'Dave Chapman',
     role: 'AI, Agents & Automation for Real Business Work',
-    title: 'Dave Chapman | Industrial AI For Workflow Bottlenecks',
+    title: 'Dave Chapman | Applied AI for Business Operations',
     description:
-      'Dave helps teams fix slow, costly workflows, then builds fast prototypes to prove what will actually work.',
+      'Dave helps businesses fix one operational workflow at a time, decide what software should do, and build a small working prototype before a larger commitment.',
     canonical: 'https://davechapman.ai/',
     email: 'dave@davechapman.dev',
     location: 'New Zealand',
   },
   hero: {
-    eyebrow: 'Operating Thesis',
-    headline: 'Find the work AI should be doing. Then prove it.',
+    eyebrow: 'Operational AI',
+    headline: 'Find the bottleneck. Prove the fix. Then decide.',
     summary:
-      'Find where work gets stuck. Define what software should decide, what humans should own, and where AI helps. Build a working prototype. Make a confident next decision.',
+      'I help teams solve one frustrating workflow at a time: the delay, the rework, the constant handoff, or the decision that nobody can trust. I diagnose what is actually happening, decide whether software, automation, AI, or a process fix is the right intervention, and build a small working prototype before any bigger commitment.',
     proofPoint: 'AI-assisted support triage cut first-response handoff to under 20 minutes.',
     primaryCta: {
       label: 'Discuss a workflow',
@@ -36,53 +36,54 @@ export const siteContent = {
   approach: [
     {
       step: '01',
-      title: 'Understand the business problem',
-      text: 'Pinpoint delay, cost, risk, and rework. Define a useful outcome.',
-      outcome: 'Priority bottleneck agreed',
+      title: 'Understand the workflow problem',
+      text: 'Identify the bottleneck, the cost of delay, and what a good outcome actually looks like.',
+      outcome: 'One workflow scoped',
     },
     {
       step: '02',
-      title: 'Map decisions, context, and ownership',
-      text: 'Decide what stays human, what moves to software, and what context each step needs.',
-      outcome: 'Ownership boundaries mapped',
+      title: 'Decide what software can safely do',
+      text: 'Work out which decisions software can make and which should stay with people.',
+      outcome: 'Ownership clarified',
     },
     {
       step: '03',
-      title: 'Design the workflow and controls',
-      text: 'Design handoffs, controls, review points, and failure paths.',
-      outcome: 'Control model approved',
+      title: 'Design the smallest workable intervention',
+      text: 'Map the handoffs, exceptions, review points, and failure paths before building anything.',
+      outcome: 'Clear next-step design',
     },
     {
       step: '04',
-      title: 'Prototype quickly',
-      text: 'Build a working slice in the real workflow, not a demo.',
+      title: 'Prototype with real inputs',
+      text: 'Build a working slice in the actual workflow, not a demo disconnected from the job.',
       outcome: 'Prototype runs live',
     },
     {
       step: '05',
       title: 'Measure and decide',
-      text: 'Measure quality and impact, then make a go/no-go decision.',
+      text: 'Check quality, cost, and operational impact, then decide whether to stop, iterate, or implement.',
       outcome: 'Go/no-go decision made',
     },
   ],
   engagement: [
     {
-      title: 'Phase 1: Diagnostic',
-      text: 'Bring one workflow. Identify delay, cost, risk, and friction points.',
+      title: 'Workflow Diagnostic',
+      text: 'Identify one operational bottleneck, map the workflow and decisions involved, and determine whether process redesign, standard automation, AI, or no intervention is appropriate.',
     },
     {
-      title: 'Phase 2: Prototype scope',
-      text: 'Define a thin slice with clear boundaries and controls.',
+      title: 'Prototype Sprint',
+      text: 'Build and test a small working solution against real workflow inputs before committing to a larger implementation.',
     },
     {
-      title: 'Phase 3: Working prototype',
-      text: 'Build and run it with real inputs and real handoffs.',
-    },
-    {
-      title: 'Phase 4: Go / no-go decision',
-      text: 'Decide: stop, iterate, or invest in production.',
+      title: 'Implementation / Handover',
+      text: 'Turn proven prototypes into operational systems, or provide the architecture, evidence, and implementation plan for the client’s internal team.',
     },
   ],
+  pricing: {
+    summary:
+      'Engagements start small, are scoped around one workflow, and are priced before work begins. Diagnostics and prototypes are bounded. Clients are not committing to a large transformation programme before the value is proven.',
+    line: 'Workflow Diagnostic — from NZ$X; Prototype Sprint — typically NZ$X–Y; Implementation — scoped after proof.',
+  },
   capabilities: [
     'AI systems for internal decision workflows',
     'Process automation with clear human checkpoints',
@@ -97,14 +98,18 @@ export const siteContent = {
       label: 'LinkedIn',
       href: 'https://www.linkedin.com/in/dave-chapman-8397501b4/',
     },
+    {
+      label: 'GitHub',
+      href: 'https://github.com/',
+    },
   ],
   whyDave: {
     lead: 'The edge is linking business problems to practical system design and fast implementation.',
     points: [
-      'Senior engineer with deep systems and integration experience.',
-      'Former logistics business owner with a strong commercial lens on technology decisions.',
-      'Build-first approach: test reality before committing to large programs.',
-      'Works across strategy and implementation so plans stay delivery-aware.',
+      'Software engineer designing systems, integrations, and operational tools that real teams actually use.',
+      'Former business owner with hands-on experience in logistics, workflow pressure, and operational decision-making.',
+      'Build-first approach: test reality before committing to large programs or expensive transformation work.',
+      'Currently working with AI, automation, and prototype development in real operational contexts.',
     ],
   },
   principles: [
@@ -135,10 +140,10 @@ export const siteContent = {
     'Turning organizational knowledge into machine-usable context',
   ],
   about:
-    'I have worked on both sides of technology decisions: business spend and software delivery. Today I redesign workflows with AI and automation, then prove ideas quickly with working prototypes.',
+    'I work across software engineering, integrations, operational systems, and business ownership. My background includes building practical systems and running a business where work has to be reliable, accountable, and efficient. I now focus on workflow diagnosis, AI automation, and rapid prototypes that test real operating value before a bigger investment is made.',
   contact: {
-    title: 'Bring one workflow that is slow, expensive, or inconsistent',
-    text: 'You leave with a clear map of what to change and a practical next move.',
+    title: 'Start with one workflow, not a full AI programme',
+    text: 'The initial conversation is free. We talk through the workflow, the cost of the problem, and whether a diagnostic, a small prototype, or a different intervention is the right next step.',
     button: 'Start the conversation',
     href: 'mailto:dave@davechapman.dev?subject=Workflow%20Conversation',
   },

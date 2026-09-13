@@ -10,15 +10,31 @@ const footerFile = readFileSync(
 );
 
 test('headline emphasizes proof and practical use', () => {
-  assert.match(copyFile, /Find the work AI should be doing\. Then prove it\./);
+  assert.match(copyFile, /Find the bottleneck\. Prove the fix\. Then decide\./);
 });
 
 test('site includes core sections needed for commercial clarity', () => {
   assert.match(pageFile, /id="problems"/);
+  assert.match(pageFile, /id="engagement"/);
   assert.match(pageFile, /id="approach"/);
   assert.match(pageFile, /id="capabilities"/);
   assert.match(pageFile, /id="why-dave"/);
   assert.match(footerFile, /id="contact"/);
+});
+
+test('homepage explains the commercial offer and buying path', () => {
+  assert.match(pageFile, /How you can work with me/);
+  assert.match(pageFile, /Workflow Diagnostic/);
+  assert.match(pageFile, /Prototype Sprint/);
+  assert.match(pageFile, /Implementation \/ Handover/);
+  assert.match(pageFile, /Start with one workflow, not an AI transformation programme\./);
+});
+
+test('about page and contact page provide trust and buying clarity', () => {
+  assert.match(copyFile, /LinkedIn/);
+  assert.match(copyFile, /GitHub/);
+  assert.match(copyFile, /initial conversation is free/i);
+  assert.match(copyFile, /one workflow/i);
 });
 
 test('hero establishes stronger visual hierarchy and proof strip', () => {
