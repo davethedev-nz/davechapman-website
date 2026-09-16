@@ -6,7 +6,7 @@ export const siteContent = {
     description:
       'Dave helps businesses fix one operational workflow at a time, decide what software should do, and build a small working prototype before a larger commitment.',
     canonical: 'https://davechapman.ai/',
-    email: 'dave@davechapman.dev',
+    email: 'dave@davechapman.ai',
     location: 'New Zealand',
   },
   hero: {
@@ -145,7 +145,7 @@ export const siteContent = {
     title: 'Start with one workflow, not a full AI programme',
     text: 'The initial conversation is free. We talk through the workflow, the cost of the problem, and whether a diagnostic, a small prototype, or a different intervention is the right next step.',
     button: 'Start the conversation',
-    href: 'mailto:dave@davechapman.dev?subject=Workflow%20Conversation',
+    href: 'mailto:dave@davechapman.ai?subject=Workflow%20Conversation',
   },
   projects: [
     {
